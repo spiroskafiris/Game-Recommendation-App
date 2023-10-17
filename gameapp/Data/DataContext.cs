@@ -7,16 +7,17 @@ namespace gameapp.Data
 {
     public class DataContext : DbContext
     {
-        private static string GetConnectionString()
+        private string connectionString;
+        public DataContext()
         {
-            string jsonSettings = File.ReadAllText("appsettings.json");
-            JObject configuration = JObject.Parse(jsonSettings);
-            return configuration["ConnectionStrings"]["DefaultConnectionString"].ToString();
+            var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            connectionString = configuration.GetValue<string>("ConnectionStrings:DefaultConnectionString");
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(GetConnectionString());
+            optionsBuilder.UseNpgsql(connectionString);
         }
+    
 
         public DbSet<Game> Games { get; set; }
         public DbSet<User> Users { get; set; }
