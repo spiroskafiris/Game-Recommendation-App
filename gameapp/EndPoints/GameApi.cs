@@ -9,6 +9,7 @@ namespace gameapp.EndPoints
         public static void ConfigureGameApi(this WebApplication app)
         {
             app.MapPost("/games", CreateAGame);
+            app.MapPost("/games", AddAGameToSelected);
             app.MapGet("/games/{id}", GetGame);
             app.MapGet("/games", GetAllGames);
             app.MapPut("/games", UpdateGame);
@@ -21,6 +22,21 @@ namespace gameapp.EndPoints
             try
             {
                 if (service.AddGame(game)) return Results.Ok();
+                return Results.NotFound();
+
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+        }
+
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        private static async Task<IResult> AddAGameToSelected(Game game, IGameRepo service)
+        {
+            try
+            {
+                if (service.AddGameToSelected(game)) return Results.Ok();
                 return Results.NotFound();
 
             }

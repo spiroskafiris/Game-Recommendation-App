@@ -33,4 +33,12 @@ app.MapControllers();
 
 app.ConfigureGameApi();
 
+app.Seed();
+
 app.Run();
+
+app.UseCors(x => x
+                  .AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .SetIsOriginAllowed(origin => true) // allow any origin
+                  .AllowCredentials()); // allow credentials

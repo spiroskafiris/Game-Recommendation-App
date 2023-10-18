@@ -16,6 +16,17 @@ namespace gameapp.Repositories
             return false;
         }
 
+        public bool AddGameToSelected(Game game)
+        {
+            using (var db = new DataContext())
+            {
+                db.SelectedGames.Add(game);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
         public bool DeleteGame(int id)
         {
             using (var db = new DataContext())
@@ -74,5 +85,7 @@ namespace gameapp.Repositories
             }
             return false;
         }
+
+        
     }
 }

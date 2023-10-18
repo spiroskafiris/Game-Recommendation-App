@@ -50,7 +50,7 @@ namespace gameapp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Games");
+                    b.ToTable("Game");
                 });
 
             modelBuilder.Entity("gameapp.Models.User", b =>

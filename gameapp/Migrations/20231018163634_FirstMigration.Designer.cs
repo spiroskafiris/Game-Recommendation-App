@@ -11,7 +11,7 @@ using gameapp.Data;
 namespace gameapp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231017073947_FirstMigration")]
+    [Migration("20231018163634_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -53,7 +53,7 @@ namespace gameapp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Games");
+                    b.ToTable("Game");
                 });
 
             modelBuilder.Entity("gameapp.Models.User", b =>
