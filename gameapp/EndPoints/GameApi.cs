@@ -9,13 +9,14 @@ namespace gameapp.EndPoints
         public static void ConfigureGameApi(this WebApplication app)
         {
             app.MapPost("/games", CreateAGame);
-            app.MapPost("/games", AddAGameToSelected);
+            // app.MapPost("/games", AddAGameToSelected);
             app.MapGet("/games/{id}", GetGame);
             app.MapGet("/games", GetAllGames);
             app.MapPut("/games", UpdateGame);
             app.MapDelete("/games", DeleteGame);
-        }   
+        }
 
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         private static async Task<IResult> CreateAGame(Game game, IGameRepo service)
         {
@@ -31,7 +32,8 @@ namespace gameapp.EndPoints
             }
         }
 
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        //[HttpPost]
+        /*[ProducesResponseType(StatusCodes.Status201Created)]
         private static async Task<IResult> AddAGameToSelected(Game game, IGameRepo service)
         {
             try
@@ -44,8 +46,10 @@ namespace gameapp.EndPoints
             {
                 return Results.Problem(ex.Message);
             }
-        }
+        }*/
 
+        //get{firstname}
+        [HttpGet]
         private static async Task<IResult> GetGame(int id, IGameRepo service)
         {
             try
@@ -63,8 +67,8 @@ namespace gameapp.EndPoints
                 return Results.Problem(ex.Message);
             }
         }
-
-
+        //get
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         private static async Task<IResult> GetAllGames(IGameRepo service)
         {
@@ -79,7 +83,8 @@ namespace gameapp.EndPoints
                 return Results.Problem(ex.Message);
             }
         }
-
+        //update
+        [HttpPut]
         [ProducesResponseType(StatusCodes.Status201Created)]
         private static async Task<IResult> UpdateGame(Game game, IGameRepo service)
         {
@@ -97,7 +102,8 @@ namespace gameapp.EndPoints
                 return Results.Problem(ex.Message);
             }
         }
-
+        //delete
+        [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
         private static async Task<IResult> DeleteGame(int id, IGameRepo service)
         {
