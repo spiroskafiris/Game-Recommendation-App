@@ -25,9 +25,10 @@ function CardCreate() {
           gameData.map((game) => (
             <Col key={game.id}>
               <Card>
-                <Card.Img variant="top" src={game.img} />
-                <Card.Body>
-                  <Card.Title>{game.title}</Card.Title>
+                <Card.Img
+                className="card--img" variant="top" src={game.img} />
+                <Card.Body className="card--text">
+                  <Card.Title ><b>Title: </b>{game.title}</Card.Title>
                   <Card.Text>
                     <b>Developer:</b> {game.developer}
                   </Card.Text>

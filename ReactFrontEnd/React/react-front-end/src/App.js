@@ -1,20 +1,30 @@
-import { Card } from 'react-bootstrap';
 import './App.css';
 import CardCreate from './components/CardCreate';
-import GameCard from './components/GameCard';
+import LoginPage from './components/LoginPage';
+import {Routes, Route, Link} from 'react-router-dom'
 
-// <script defer src="/src/CardCreate.js"></script>
-function App() {       
+function App() {   
+    
+    
+
+
     return(
     <>
-    <h1>Game Recommendations App</h1>
-        {/* <ul className="cards"></ul>
-        <>
-        <GameCard /> this works for handbuilt cards
-        </> */}
-        <>
-        <CardCreate />
-        </>
+    <header>
+        <h1>Game Recommendations App</h1>
+        <nav>
+          <ul>
+           <li><Link to='/LoginPage'>LoginPage</Link></li>
+           <li><Link to='/CardCreate'>CardCreate</Link></li>
+            
+              <Routes>
+                <Route path="/LoginPage" element={<LoginPage/>} />
+                <Route path='/CardCreate' element={<CardCreate/>} /> 
+              </Routes>
+                          
+          </ul>
+        </nav>
+      </header>
     </>)
 }
 
