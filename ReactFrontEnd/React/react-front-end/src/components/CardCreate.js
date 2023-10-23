@@ -6,81 +6,39 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 function CardCreate() {
+    const [gameData, setGameData] = useState([]);
 
-    const [gameData, setGameData] = useState([])
-
-    //this is from the indian guy
+    //this
     useEffect(() => {
-      axios.get("https://localhost:7221/games").then((Response) => {
+      axios.get("https://localhost:7221/games").then((response) => {
+        console.log(response.data)
         setGameData((existingData) => {
-          return Response.data;
+          return response.data;
         });
       });
     }, []);
 
-
-
-    // const handleChange = (event) => {
-    //   const { name, value, type } = event.target
-  
-    //     setFormData({
-    //       ...gameData,
-    //       [event.target.name]: event.target.value
-    //     })
-  
-    // }
-
-    // const handleSubmit = (event) => {
-        
-    //     event.preventDefault()
-        
-    //     console.log(gameData)
-
-    //     fetch('https://localhost:7221/swagger/games', {
-    //       method: 'GET',
-    //       body: JSON.stringify(gameData), 
-    //         /*JSON.stringify({
-    //          title: title,
-    //          body: body,
-    //          userId: Math.random().toString(36).slice(2),
-            
-    //       }), */
-    //       headers: {
-    //          'Content-type': 'application/json; charset=UTF-8',
-    //       },
-    //    })
-    //       .then((res) => {
-    //         console.log(res.json())
-            
-    //       })         
-    //       .catch((err) => {
-    //          console.log(err.message);
-    //       });
-
-
-    // }
-
     return(
         <>
-        <Row xs={1} md={3} className="g-4 mt-1">
+        <Row xs={1} md={3} className="cards">
           {
           gameData.map((game) => (
-            <Col key={game.Id}>
+            <Col key={game.id}>
               <Card>
-                {/* <Card.Img variant="top" src={game.imgurl} /> */}
+                <Card.Img variant="top" src={game.img} />
                 <Card.Body>
-                  <Card.Title>game.Title</Card.Title>
+                  <Card.Title>{game.title}</Card.Title>
                   <Card.Text>
-                    <b>Developer:</b> {game.Developer}
+                    <b>Developer:</b> {game.developer}
                   </Card.Text>
                   <Card.Text>
-                    <b>Genres:</b> {game.Genres}
+                    <b>Genres:</b> {game.genres}
                   </Card.Text>
                   <Card.Text>
-                    <b>Rating:</b> {game.Rating}
+                    <b>Rating:</b> {game.rating}
                   </Card.Text>
                   <Card.Text>
-                    <b>Description:</b> {game.Description}
+                    <b>Description:</b> {game.description}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -91,4 +49,4 @@ function CardCreate() {
     )
 }
 
-export default CardCreate()
+export default CardCreate;

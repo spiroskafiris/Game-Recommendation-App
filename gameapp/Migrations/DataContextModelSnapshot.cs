@@ -41,6 +41,10 @@ namespace gameapp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Img")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int>("Rating")
                         .HasColumnType("integer");
 

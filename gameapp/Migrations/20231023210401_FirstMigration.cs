@@ -18,6 +18,7 @@ namespace gameapp.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Title = table.Column<string>(type: "text", nullable: false),
+                    Img = table.Column<string>(type: "text", nullable: false),
                     Developer = table.Column<string>(type: "text", nullable: false),
                     Genres = table.Column<string>(type: "text", nullable: false),
                     Rating = table.Column<int>(type: "integer", nullable: false),

@@ -16,7 +16,15 @@ builder.Services.AddDbContext<DataContext>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactJSDomain",
+        policy => policy.WithOrigins("http://localhost:3000")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowAnyOrigin()
+        );
+});
 
 var app = builder.Build();
 
@@ -29,6 +37,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("ReactJSDomain");
+
 app.UseAuthorization();
 
 app.MapControllers();
@@ -39,8 +49,3 @@ app.Seed();
 
 app.Run();
 
-app.UseCors(x => x
-                  .AllowAnyMethod()
-                  .AllowAnyHeader()
-                  .SetIsOriginAllowed(origin => true) // allow any origin
-                  .AllowCredentials()); // allow credentials

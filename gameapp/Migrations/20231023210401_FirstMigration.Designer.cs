@@ -11,7 +11,7 @@ using gameapp.Data;
 namespace gameapp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231018163634_FirstMigration")]
+    [Migration("20231023210401_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -41,6 +41,10 @@ namespace gameapp.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Genres")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Img")
                         .IsRequired()
                         .HasColumnType("text");
 
