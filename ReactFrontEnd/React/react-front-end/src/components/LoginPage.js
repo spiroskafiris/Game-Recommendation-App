@@ -1,17 +1,34 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
+import { useState } from 'react';
+import {MDBContainer, MDBCol, MDBRow, MDBCheckbox } from 'mdb-react-ui-kit';
 
 function LoginPage() {
+  const [email, setEmail] = useState("");
 
+  const [password, setPassword] = useState("");
+
+  function validateForm() {
+
+    return email.length > 0 && password.length > 0;
+
+  }
+
+  function handleSubmit(event) {
+
+    event.preventDefault();
+    window.location.href='http://localhost:3000/CategoriesSelector';
+    // onClick={event =>  window.location.href='/your-href'}
+
+  }
   return (
-    <MDBContainer fluid className="blocktext">
+    <MDBContainer fluid className="Login">
 
       <MDBRow>
         
         <MDBCol col='10' md='6'>
-          <img width='450px' src="https://techsmart.gr/wp-content/uploads/2023/09/PROX2-Landscape-21.jpg" className="img-fluid" alt="Sample image" />
+          <img width='450px' src="https://techsmart.gr/wp-content/uploads/2023/09/PROX2-Landscape-21.jpg" className="img-fluid"/>
         </MDBCol>
 
         <MDBCol col='4' md='6'>
@@ -19,20 +36,27 @@ function LoginPage() {
             <p>Sign in</p>
           </div>
 
-            <Form>
-                <p>
-                <Form.Group className="mb-3" controlId="ControlInput1">
-                    <Form.Label> Email address </Form.Label>
-                    <Form.Control type="email" placeholder="name@example.com" />
-                </Form.Group>
-                </p>
-                <p>
-                <Form.Group className="mb-3" controlId="ControlInput2">
-                    <Form.Label> Password </Form.Label>
-                    <Form.Control type="password" placeholder="*********" />
-                </Form.Group>
-                </p>
-            </Form>
+          <Form onSubmit={handleSubmit}>
+
+              <Form.Group size="lg" controlId="email">
+
+                <Form.Label>Email</Form.Label>
+
+                <Form.Control autoFocus type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+
+              </Form.Group>
+
+              <Form.Group size="lg" controlId="password">
+
+                <Form.Label>Password</Form.Label>
+
+                <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+
+              </Form.Group>
+
+              <Button block size="lg" type="submit" disabled={!validateForm()}>Login</Button>
+
+          </Form>
 
           <div>
             <p>
@@ -42,8 +66,6 @@ function LoginPage() {
           </div>
 
           <div>
-            <Button>Login</Button>
-
             <p>Don't have an account? <a href="#!" className="link-danger">Register</a></p>
           </div>
 
@@ -57,29 +79,13 @@ function LoginPage() {
           Copyright © 2023. All rights reserved.
         </div>
 
-        <div>
-
-          <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
-            <MDBIcon fab icon='facebook-f' size="md"/>
-          </MDBBtn>
-
-          <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white'  }}>
-            <MDBIcon fab icon='twitter' size="md"/>
-          </MDBBtn>
-
-          <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white'  }}>
-            <MDBIcon fab icon='google' size="md"/>
-          </MDBBtn>
-
-          <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white'  }}>
-            <MDBIcon fab icon='linkedin-in' size="md"/>
-          </MDBBtn>
-
-        </div>
-
       </div>
 
     </MDBContainer>
+
+
+
+ 
   );
 }
 
