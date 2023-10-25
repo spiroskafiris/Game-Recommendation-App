@@ -17,14 +17,6 @@ function CardCreate() {
         });
       });
     }, []);
-    // const handleChange = (e) => { 
-    
-    //     console.log('The checkbox was toggled'); 
-    //     var value = e.target.value;
-    //     var checkedstate = e.target.checked; //this return true or false for each box
-    //     console.log("the button is " + checkedstate);
-      
-    // }; 
 
     const filteredDATA = gameData.filter((game) =>
       filterTags.length > 0
@@ -33,7 +25,7 @@ function CardCreate() {
           )
         : gameData
     )
-  
+
     const handleChange = (event) => {
       if (event.target.checked) {
         setFilterTags([...filterTags, event.target.value])
@@ -47,49 +39,68 @@ function CardCreate() {
     return(
         <>
           <h1>Choose a Game Category:</h1>
-        <div className="custom-select">
-            <label class="container">Soulslike
-                <input type="checkbox" value="Soulslike" onChange={handleChange}/>
+        
+            <label class="container">Action
+                <input type="checkbox" value="Action ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
-            <label class="container">Soccer
-                <input type="checkbox" value="Soccer" onChange={handleChange}/>
+            <label class="container">Co-op
+                <input type="checkbox" value="Co-op ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
-            <label class="container">Strategy
-                <input type="checkbox" value="Strategy" onChange={handleChange}/>
+            <label class="container">Online
+                <input type="checkbox" value="Online ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container">Fighting
-                <input type="checkbox" value="Fighting" onChange={handleChange}/>
+                <input type="checkbox" value="Fighting ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container">FPS
-                <input type="checkbox" value="FPS" onChange={handleChange}/>
+                <input type="checkbox" value="FPS ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container">MMORPG
-                <input type="checkbox" value="MMORPG" onChange={handleChange}/>
+                <input type="checkbox" value="MMORPG ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
-            <label class="container">Car Soccer
-                <input type="checkbox" value="Car Soccer" onChange={handleChange}/>
+            <label class="container">Cars
+                <input type="checkbox" value="Cars ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container">Ninja Shooter
-                <input type="checkbox" value="Ninja Shooter" onChange={handleChange}/>
+                <input type="checkbox" value="Ninja Shooter ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
-            <label class="container">Platform
-                <input type="checkbox" value="Platform" onChange={handleChange}/>
+            <label class="container">Soulslike
+                <input type="checkbox" value="Soulslike ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
-        </div>
+            <label class="container">Atmospheric
+                <input type="checkbox" value="Atmospheric ," onChange={handleChange}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Survival
+                <input type="checkbox" value="Survival ," onChange={handleChange}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Racing
+                <input type="checkbox" value="Racing ," onChange={handleChange}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Soccer
+                <input type="checkbox" value="Soccer ," onChange={handleChange}/>
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Strategy
+                <input type="checkbox" value="Strategy ," onChange={handleChange}/>
+                <span class="checkmark"></span>
+            </label>
 
 
+        <h1>The best games for you are:</h1>
         <Row xs={1} md={3} className="cards">
           {
-          // gameData.map((game) => (
             filteredDATA.map(filteredGames => (
             <Col key={filteredGames.id}>
               <Card>

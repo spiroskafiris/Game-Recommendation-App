@@ -63,29 +63,6 @@ namespace gameapp.Repositories
             }
             return null;
         }
-
-        
-
-        public bool UpdateGame(Game game)
-        {
-            using (var db = new DataContext())
-            {
-                var target = db.Games.FirstOrDefault(c => c.Id == game.Id);
-                if (target != null)
-                {
-                    db.Games.Attach(target);
-                    target.Title = game.Title;
-                    target.Developer = game.Developer;
-                    target.Genres = game.Genres;
-                    target.Rating = game.Rating;
-                    target.Description = game.Description;
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            return false;
-        }
-
         
     }
 }

@@ -1,7 +1,6 @@
 import './App.css';
 import CardCreate from './components/CardCreate';
 import LoginPage from './components/LoginPage';
-import CategoriesSelector from './components/CategoriesSelector';
 import {Routes, Route, Link} from 'react-router-dom'
 
 function App() {   
@@ -11,9 +10,9 @@ function App() {
         <h1>Game Recommendations App</h1>
         <nav>
           <ul>
-           <li><Link to='/LoginPage' style={{color: "blue"}}>Please Log in here.</Link></li>
+           <li><Link to='/LoginPage' style={{color: "black"}}>Please Log in here.</Link></li>
            {/* <li><Link to='/CategoriesSelector' style={{color: "blue"}}>Categories</Link></li> */}
-           <li><Link to='/CategoriesSelector'>Categories</Link></li>
+           <li><Link to='/CategoriesSelector' style={{color: "black"}}>Categories</Link></li>
             
               <Routes>
                 <Route path="/LoginPage" element={<LoginPage/>} />

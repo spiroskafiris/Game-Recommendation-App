@@ -12,7 +12,6 @@ namespace gameapp.EndPoints
             // app.MapPost("/games", AddAGameToSelected);
             app.MapGet("/games/{id}", GetGame);
             app.MapGet("/games", GetAllGames);
-            app.MapPut("/games", UpdateGame);
             app.MapDelete("/games", DeleteGame);
         }
 
@@ -83,25 +82,7 @@ namespace gameapp.EndPoints
                 return Results.Problem(ex.Message);
             }
         }
-        //update
-        [HttpPut]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        private static async Task<IResult> UpdateGame(Game game, IGameRepo service)
-        {
-            try
-            {
-                return await Task.Run(() =>
-                {
-                    if (service.UpdateGame(game)) return Results.Ok();
-                    return Results.NotFound();
-                });
-
-            }
-            catch (Exception ex)
-            {
-                return Results.Problem(ex.Message);
-            }
-        }
+    
         //delete
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]

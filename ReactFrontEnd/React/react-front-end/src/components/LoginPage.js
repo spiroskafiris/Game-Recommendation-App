@@ -28,13 +28,14 @@ function LoginPage() {
       <MDBRow>
         
         <MDBCol col='10' md='6'>
-          <img width='450px' src="https://techsmart.gr/wp-content/uploads/2023/09/PROX2-Landscape-21.jpg" className="img-fluid"/>
+          <img width='550px' src="https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg" className="img-fluid"/>
         </MDBCol>
 
         <MDBCol col='4' md='6'>
-          <div>
-            <p>Sign in</p>
+          <div font-size='xx-large' font-weight= '600'>
+            <p ><big>Log in</big></p>
           </div>
+
 
           <Form onSubmit={handleSubmit}>
 

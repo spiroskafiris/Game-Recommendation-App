@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -20,7 +21,7 @@ namespace gameapp.Migrations
                     Title = table.Column<string>(type: "text", nullable: false),
                     Img = table.Column<string>(type: "text", nullable: false),
                     Developer = table.Column<string>(type: "text", nullable: false),
-                    Genres = table.Column<string>(type: "text", nullable: false),
+                    Genres = table.Column<List<string>>(type: "text[]", nullable: false),
                     Rating = table.Column<int>(type: "integer", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false)
                 },
