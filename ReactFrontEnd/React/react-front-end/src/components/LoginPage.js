@@ -9,6 +9,7 @@ function LoginPage() {
 
   const [password, setPassword] = useState("");
 
+
   function validateForm() {
 
     return email.length > 0 && password.length > 0;
@@ -18,10 +19,11 @@ function LoginPage() {
   function handleSubmit(event) {
 
     event.preventDefault();
-    window.location.href='http://localhost:3000/CategoriesSelector';
+    // window.location.href='http://localhost:3000/CategoriesSelector';
     // onClick={event =>  window.location.href='/your-href'}
-
   }
+
+
   return (
     <MDBContainer fluid className="Login">
 
@@ -57,8 +59,17 @@ function LoginPage() {
 
               <Button block size="lg" type="submit" disabled={!validateForm()}>Login</Button>
 
+              <div className="input">
+                <button id="google-login-btn" className="google-button">
+                  <i className="fab fa-google"></i>Login with Google
+                </button>
+              </div>
+
+
           </Form>
 
+
+          
           <div>
             <p>
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
@@ -83,6 +94,9 @@ function LoginPage() {
       </div>
 
     </MDBContainer>
+
+    //firebase
+    
 
 
 

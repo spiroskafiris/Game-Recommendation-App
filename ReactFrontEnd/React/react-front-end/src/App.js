@@ -1,6 +1,6 @@
 import './App.css';
 import CardCreate from './components/CardCreate';
-import LoginPage from './components/LoginPage';
+import NewLogin from './components/NewLogin';
 import {Routes, Route, Link} from 'react-router-dom'
 
 function App() {   
@@ -10,12 +10,12 @@ function App() {
         <h1>Game Recommendations App</h1>
         <nav>
           <ul>
-           <li><Link to='/LoginPage' style={{color: "black"}}>Please Log in here.</Link></li>
+           <li><Link to='/NewLogin' style={{color: "black"}}>Please Log in here.</Link></li>
            {/* <li><Link to='/CategoriesSelector' style={{color: "blue"}}>Categories</Link></li> */}
            <li><Link to='/CategoriesSelector' style={{color: "black"}}>Categories</Link></li>
             
               <Routes>
-                <Route path="/LoginPage" element={<LoginPage/>} />
+                <Route path="/NewLogin" element={<NewLogin/>} />
                 {/* <Route path="/CategoriesSelector" element={<CategoriesSelector/>} /> */}
                 <Route path='/CategoriesSelector' element={<CardCreate/>} /> 
               </Routes>
