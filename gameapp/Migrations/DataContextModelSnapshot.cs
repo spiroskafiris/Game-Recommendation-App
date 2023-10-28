@@ -38,6 +38,10 @@ namespace gameapp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<List<string>>("Genres")
                         .IsRequired()
                         .HasColumnType("text[]");
@@ -55,7 +59,11 @@ namespace gameapp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Game");
+                    b.ToTable("Games");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Game");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("gameapp.Models.User", b =>
@@ -81,6 +89,13 @@ namespace gameapp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("gameapp.Models.Favorite", b =>
+                {
+                    b.HasBaseType("gameapp.Models.Game");
+
+                    b.HasDiscriminator().HasValue("Favorite");
                 });
 #pragma warning restore 612, 618
         }

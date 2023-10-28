@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 using System.Net.Sockets;
+using System.Reflection.Emit;
+using System.Reflection.Metadata;
 
 namespace gameapp.Data
 {
@@ -21,7 +23,7 @@ namespace gameapp.Data
 
         public DbSet<Game> Games { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Game> SelectedGames { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
 
     }
 }

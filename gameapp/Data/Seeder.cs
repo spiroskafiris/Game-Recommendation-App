@@ -11,7 +11,7 @@ namespace gameapp.Data
             {
 
                 var games = new List<Game>();
-                var selected = new List<Game>();
+                var favorites = new List<Favorite>();
 
                 if (!db.Games.Any())
                 {

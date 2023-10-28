@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IGameRepo, GameRepo>();
+builder.Services.AddScoped<IFav, Fav>();
+
 
 builder.Services.AddDbContext<DataContext>();
 
@@ -44,6 +46,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.ConfigureGameApi();
+app.ConfigureFavoriteApi();
 
 app.Seed();
 

@@ -12,7 +12,7 @@ using gameapp.Data;
 namespace gameapp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231025183746_FirstMigration")]
+    [Migration("20231028165031_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -41,6 +41,10 @@ namespace gameapp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<List<string>>("Genres")
                         .IsRequired()
                         .HasColumnType("text[]");
@@ -58,7 +62,11 @@ namespace gameapp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Game");
+                    b.ToTable("Games");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Game");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("gameapp.Models.User", b =>
@@ -84,6 +92,13 @@ namespace gameapp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("gameapp.Models.Favorite", b =>
+                {
+                    b.HasBaseType("gameapp.Models.Game");
+
+                    b.HasDiscriminator().HasValue("Favorite");
                 });
 #pragma warning restore 612, 618
         }
