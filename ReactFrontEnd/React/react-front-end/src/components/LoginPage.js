@@ -20,7 +20,6 @@ function LoginPage() {
 
     event.preventDefault();
     // window.location.href='http://localhost:3000/CategoriesSelector';
-    // onClick={event =>  window.location.href='/your-href'}
   }
 
 

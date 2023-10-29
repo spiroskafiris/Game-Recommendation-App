@@ -12,5 +12,6 @@ namespace gameapp.Models
         public List<string> Genres { get; set; }
         public int Rating { get; set; }
         public string Description { get; set; }
+        public bool isFavorite { get; set; }
     }
 }

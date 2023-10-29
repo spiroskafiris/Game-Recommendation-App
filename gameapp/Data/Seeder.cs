@@ -22,7 +22,8 @@ namespace gameapp.Data
                         Developer = "EA",
                         Genres = new List<string> { "Soccer ,", "Co-op ,", "Online " },
                         Rating = 7,
-                        Description = "Soccer for dreamers who couldn't make their dream come true"
+                        Description = "Soccer for dreamers who couldn't make their dream come true",
+                        isFavorite = false
                     };
                     games.Add(game1);
                     Game game2 = new Game()
@@ -32,7 +33,8 @@ namespace gameapp.Data
                         Developer = "EA",
                         Genres = new List<string> { "FPS ,", "Co-op ,", "Online ,", "Action ," },
                         Rating = 9,
-                        Description = "COD for ruining friendships"
+                        Description = "COD for ruining friendships",
+                        isFavorite = false
                     };
                     games.Add(game2);
                     Game game3 = new Game()
@@ -42,7 +44,8 @@ namespace gameapp.Data
                         Developer = "Riot Games",
                         Genres = new List<string> { "MMORPG ,", "Online ,", "Action ," },
                         Rating = 3,
-                        Description = "For those who have spare money for a new keyboard"
+                        Description = "For those who have spare money for a new keyboard",
+                        isFavorite = false
                     };
                     games.Add(game3);
                     Game game4 = new Game()
@@ -52,7 +55,8 @@ namespace gameapp.Data
                         Developer = "Psyonix",
                         Genres = new List<string> { "Soccer ,", "Cars ,", "Online ,", "Action ," },
                         Rating = 6,
-                        Description = "Strike a goal with your car."
+                        Description = "Strike a goal with your car.",
+                        isFavorite = false
                     };
                     games.Add(game4);
                     Game game5 = new Game()
@@ -62,7 +66,8 @@ namespace gameapp.Data
                         Developer = "Namco",
                         Genres = new List<string> { "Fighting ,", "Action ,", "Co-op ," },
                         Rating = 6,
-                        Description = "Be a fighter!"
+                        Description = "Be a fighter!",
+                        isFavorite = false
                     };
                     games.Add(game5);
                     Game game6 = new Game()
@@ -72,7 +77,8 @@ namespace gameapp.Data
                         Developer = "D.E.",
                         Genres = new List<string> { "Ninja Shooter ,", "Action ,", "Online ,", "Co-op ," },
                         Rating = 10,
-                        Description = "Ninjas play for free!"
+                        Description = "Ninjas play for free!",
+                        isFavorite = false
                     };
                     games.Add(game6);
                     Game game7 = new Game()
@@ -82,7 +88,8 @@ namespace gameapp.Data
                         Developer = "Playdead",
                         Genres = new List<string> { "Atmospheric ," },
                         Rating = 9,
-                        Description = "Small."
+                        Description = "Small.",
+                        isFavorite = false
                     };
                     games.Add(game7);
                     Game game8 = new Game()
@@ -92,7 +99,8 @@ namespace gameapp.Data
                         Developer = "Relic Ent.",
                         Genres = new List<string> { "Strategy ,", "Action ," },
                         Rating = 10,
-                        Description = "Divide and Conquer!"
+                        Description = "Divide and Conquer!",
+                        isFavorite = false
                     };
                     games.Add(game8);
                     Game game9 = new Game()
@@ -102,7 +110,8 @@ namespace gameapp.Data
                         Developer = "FromSoftware",
                         Genres = new List<string> { "Soulslike ,", "Action ," },
                         Rating = 10,
-                        Description = "Good luck."
+                        Description = "Good luck.",
+                        isFavorite = false
                     };
                     games.Add(game9);
                     Game game10 = new Game()
@@ -112,7 +121,8 @@ namespace gameapp.Data
                         Developer = "FromSoftware",
                         Genres = new List<string> { "Soulslike ,", "Action ," },
                         Rating = 11,
-                        Description = "Good luck again.."
+                        Description = "Good luck again..",
+                        isFavorite = false
                     };
                     games.Add(game10);
                     Game game11 = new Game()
@@ -122,7 +132,8 @@ namespace gameapp.Data
                         Developer = "Rockstar Games",
                         Genres = new List<string> { "Online ,", "Action ,", "Co-op ," },
                         Rating = 8,
-                        Description = "The train CJ!"
+                        Description = "The train CJ!",
+                        isFavorite = false
                     };
                     games.Add(game11);
                     Game game12 = new Game()
@@ -132,7 +143,8 @@ namespace gameapp.Data
                         Developer = " Mojang",
                         Genres = new List<string> { "Action ,", "Atmospheric ,", "Survival ," },
                         Rating = 8,
-                        Description = "Build Blocks"
+                        Description = "Build Blocks",
+                        isFavorite = false
                     };
                     games.Add(game12);
                     Game game13 = new Game()
@@ -142,7 +154,8 @@ namespace gameapp.Data
                         Developer = "E.A",
                         Genres = new List<string> { "Racing ,", "Action ,", "Cars ," },
                         Rating = 10,
-                        Description = "Best car game in history"
+                        Description = "Best car game in history",
+                        isFavorite = false
                     };
                     games.Add(game13);
                     Game game14 = new Game()
@@ -152,7 +165,8 @@ namespace gameapp.Data
                         Developer = "Endnight Games",
                         Genres = new List<string> { "Survival ,", "Action ,", "Co-op ," },
                         Rating = 9,
-                        Description = "Survive the Forest.."
+                        Description = "Survive the Forest..",
+                        isFavorite = false
                     };
                     games.Add(game14);
                     Game game15 = new Game()
@@ -162,7 +176,8 @@ namespace gameapp.Data
                         Developer = " Marcus Bromanther",
                         Genres = new List<string> { "Online ,", "Co-op ,", "Atmospheric ," },
                         Rating = 7,
-                        Description = "There is an impostor Among Us..."
+                        Description = "There is an impostor Among Us...",
+                        isFavorite = false
                     };
                     games.Add(game15);
                     Game game16 = new Game()
@@ -172,7 +187,8 @@ namespace gameapp.Data
                         Developer = "CD Projekt RED",
                         Genres = new List<string> { "Action ," },
                         Rating = 10,
-                        Description = "The hunt is on."
+                        Description = "The hunt is on.",
+                        isFavorite = false
                     };
                     games.Add(game16);
                     Game game17 = new Game()
@@ -182,7 +198,8 @@ namespace gameapp.Data
                         Developer = "Gameloft",
                         Genres = new List<string> { "Action ," },
                         Rating = 6,
-                        Description = "Your friendly neighborhood Spider-Man"
+                        Description = "Your friendly neighborhood Spider-Man",
+                        isFavorite = false
                     };
                     games.Add(game17);
                     Game game18 = new Game()
@@ -192,7 +209,8 @@ namespace gameapp.Data
                         Developer = " CD Projekt RED",
                         Genres = new List<string> { "Action ,", "Atmospheric ," },
                         Rating = 11,
-                        Description = "There is an impostor Among Us..."
+                        Description = "There is an impostor Among Us...",
+                        isFavorite = false
                     };
                     games.Add(game18);
                     Game game19 = new Game()
@@ -202,7 +220,8 @@ namespace gameapp.Data
                         Developer = " Blizzard",
                         Genres = new List<string> { "Co-op ,", "Online ,", "Action ,", "FPS ," },
                         Rating = 7,
-                        Description = "Team up and Fight!"
+                        Description = "Team up and Fight!",
+                        isFavorite = false
                     };
                     games.Add(game19);
                     Game game20 = new Game()
@@ -212,7 +231,8 @@ namespace gameapp.Data
                         Developer = "Ubisoft",
                         Genres = new List<string> { "Action ," },
                         Rating = 6,
-                        Description = "I am but a blade in a crowd"
+                        Description = "I am but a blade in a crowd",
+                        isFavorite = false
                     };
                     games.Add(game20);
                     Game game21 = new Game()
@@ -222,7 +242,8 @@ namespace gameapp.Data
                         Developer = "Yuke's",
                         Genres = new List<string> { "Co-op ,", "Fighting ," },
                         Rating = 6,
-                        Description = "You can' see me, my time is now!"
+                        Description = "You can' see me, my time is now!",
+                        isFavorite = false
                     };
                     games.Add(game21);
                     Game game22 = new Game()
@@ -232,7 +253,8 @@ namespace gameapp.Data
                         Developer = "Tencent Games",
                         Genres = new List<string> { "Action ,", "Co-op ,", "Online ," },
                         Rating = 8,
-                        Description = "WINNER WINNER CHICKEN DINNER!"
+                        Description = "WINNER WINNER CHICKEN DINNER!",
+                        isFavorite = false
                     };
                     games.Add(game22);
                     Game game23 = new Game()
@@ -242,7 +264,8 @@ namespace gameapp.Data
                         Developer = "Riot Games",
                         Genres = new List<string> { "Action ,", "Co-op ,", "Online ,", "FPS ," },
                         Rating = 6,
-                        Description = "Clutch"
+                        Description = "Clutch",
+                        isFavorite = false
                     };
                     games.Add(game23);
                     Game game24 = new Game()
@@ -252,7 +275,8 @@ namespace gameapp.Data
                         Developer = "Valve",
                         Genres = new List<string> { "Action ,", "Co-op ,", "Online ,", "FPS ," },
                         Rating = 7,
-                        Description = "The Classic"
+                        Description = "The Classic",
+                        isFavorite = false
                     };
                     games.Add(game24);
                     Game game25 = new Game()
@@ -262,7 +286,8 @@ namespace gameapp.Data
                         Developer = "343 Industries",
                         Genres = new List<string> { "Action ,", "Atmospheric ,", "Online ,", "FPS ," },
                         Rating = 10,
-                        Description = "Master Chief reporting for Duty."
+                        Description = "Master Chief reporting for Duty.",
+                        isFavorite = false
                     };
                     games.Add(game25);
 

@@ -12,7 +12,7 @@ using gameapp.Data;
 namespace gameapp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231028173917_FirstMigration")]
+    [Migration("20231029232821_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -59,6 +59,9 @@ namespace gameapp.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("isFavorite")
+                        .HasColumnType("boolean");
 
                     b.HasKey("Id");
 

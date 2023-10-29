@@ -24,6 +24,7 @@ namespace gameapp.Migrations
                     Genres = table.Column<List<string>>(type: "text[]", nullable: false),
                     Rating = table.Column<int>(type: "integer", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
+                    isFavorite = table.Column<bool>(type: "boolean", nullable: false),
                     Discriminator = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>

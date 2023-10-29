@@ -57,6 +57,9 @@ namespace gameapp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<bool>("isFavorite")
+                        .HasColumnType("boolean");
+
                     b.HasKey("Id");
 
                     b.ToTable("Games");

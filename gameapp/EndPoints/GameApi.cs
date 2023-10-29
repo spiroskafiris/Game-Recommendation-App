@@ -12,6 +12,7 @@ namespace gameapp.EndPoints
             app.MapGet("/games/{id}", GetGame);
             app.MapGet("/games", GetAllGames);
             app.MapDelete("/games", DeleteGame);
+            app.MapPut("/games", UpdateGame);
         }
 
         [HttpPost]
@@ -30,7 +31,7 @@ namespace gameapp.EndPoints
             }
         }
 
-        //get{firstname}
+        //get{id}
         [HttpGet]
         private static async Task<IResult> GetGame(int id, IGameRepo service)
         {
@@ -65,7 +66,25 @@ namespace gameapp.EndPoints
                 return Results.Problem(ex.Message);
             }
         }
-    
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        private static async Task<IResult> UpdateGame(Game game, IGameRepo service)
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    if (service.UpdateGame(game)) return Results.Ok();
+                    return Results.NotFound();
+                });
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+        }
+
         //delete
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]

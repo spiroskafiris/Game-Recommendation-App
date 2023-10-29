@@ -4,8 +4,6 @@ import axios from "axios";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { Navigate } from "react-router-dom";
-import { useRef } from "react";
 
 function CardCreate() {
     const [gameData, setGameData] = useState([]);
@@ -13,7 +11,7 @@ function CardCreate() {
 
     useEffect(() => {
       axios.get("https://localhost:7221/games").then((response) => {
-        console.log(response.data)
+        //console.log(response.data)
         setGameData((existingData) => {
           return response.data;
         });
@@ -21,13 +19,13 @@ function CardCreate() {
     }, []);
 
     const filteredDATA = gameData.filter((game) =>
-      filterTags.length > 0
-        ? filterTags.every((filterTag) =>
-            game.genres.includes(filterTag)
-          )
-        : gameData
+    filterTags.length > 0
+      ? filterTags.every((filterTag) =>
+          game.genres.includes(filterTag)
+        )
+      : gameData
     )
-
+    
     const handleChange = (event) => {
       if (event.target.checked) {
         setFilterTags([...filterTags, event.target.value])
@@ -37,30 +35,38 @@ function CardCreate() {
         )
       }
     }
-    
-    //post
-    const cardTitle = useRef("");
-    const cardImg = useRef("");
-    const cardDev = useRef("");
-    const cardGen = useRef("");
-    const cardRat = useRef("");
-    const cardDes = useRef("");
 
-    function addtofav() {
-      var payload = {
-        title: cardTitle.current.value,
-        img: cardImg.current.value,
-        developer: cardDev.current.value,
-        genres: cardGen.current.value,
-        rating: cardRat.current.value,
-        description: cardDes.current.value,//Col.filteredGames.description
+      function addtofav(id) {
+            var payload = {
+              id:id,
+              img: gameData[id-1].img,
+              title: gameData[id-1].title,
+              developer: gameData[id-1].developer,
+              genres: gameData[id-1].genres,
+              rating: gameData[id-1].rating,
+              description: gameData[id-1].description,
+              isFavorite: true
+              }
+              console.log(payload)
+
+            axios.put('https://localhost:7221/games', payload)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+                console.log("faaaaailed");
+            });
+            // axios.get("https://localhost:7221/games").then((response) => {
+            //   console.log(response.data)
+            //   setGameData((existingData) => {
+            //     return response.data;
+            //   });
+            // });
+            console.log(gameData);
       }
-      axios.post("https://localhost:7221/games",payload).then((response) => {
-        Navigate("/CardCreate");
-
-      })
-    }
-
+ 
+      console.log(gameData);
     return(
         <>
           <h1>Choose a Game Category:</h1>
@@ -83,10 +89,6 @@ function CardCreate() {
             </label>
             <label class="container2">FPS
                 <input type="checkbox" value="FPS ," onChange={handleChange}/>
-                <span class="checkmark"></span>
-            </label>
-            <label class="container2">MMORPG
-                <input type="checkbox" value="MMORPG ," onChange={handleChange}/>
                 <span class="checkmark"></span>
             </label>
             <label class="container2">Cars
@@ -129,23 +131,23 @@ function CardCreate() {
             <Col key={filteredGames.id}>
               <Card>
                 <Card.Img
-                className="card--img" variant="top" src={filteredGames.img} ref={cardImg}/>
+                className="card--img" variant="top" src={filteredGames.img} />
                 <Card.Body className="card--text">
-                  <Card.Title ref={cardTitle}><b>Title: </b>{filteredGames.title}</Card.Title>
-                  <Card.Text ref={cardDev}>
+                  <Card.Title ><b>Title: </b>{filteredGames.title}</Card.Title>
+                  <Card.Text >
                     <b>Developer:</b> {filteredGames.developer}
                   </Card.Text>
-                  <Card.Text ref={cardGen}>
+                  <Card.Text >
                     <b>Genres:</b> {filteredGames.genres}
                   </Card.Text>
-                  <Card.Text ref={cardRat}>
+                  <Card.Text >
                     <b>Rating:</b> {filteredGames.rating}
                   </Card.Text>
-                  <Card.Text ref={cardDes}>
+                  <Card.Text >
                     <b>Description:</b> {filteredGames.description}
                   </Card.Text>
 
-                  <button id="addtofav-btn" className="addtofav-btn" onClick={addtofav}>Favorite</button>
+                  <button id="addtofav-btn" className="addtofav-btn" onClick={(e) => addtofav(filteredGames.id)}>Favorite</button>
                 </Card.Body>
               </Card>
             </Col>

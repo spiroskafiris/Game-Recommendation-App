@@ -1,7 +1,14 @@
-import { Navigate } from "react-router-dom";
-import { useHref } from "react-router-dom";
 
 function NewLogin() {
+
+    function handleSubmit(event) {
+
+        event.preventDefault();
+        console.log("hi");
+        window.location.href='http://localhost:3000/CardCreate';
+        
+      }
+
     return(
     <section>
         <div className="image">
@@ -21,7 +28,7 @@ function NewLogin() {
                         <input type="password" name="password" required></input>
                     </div>
                     <div className="input">
-                        <input type="submit" value="Submit" id="submit-button"></input>
+                        <input type="submit" value="Submit" id="submit-button" onClick={handleSubmit}></input>
                     </div>
                     <div className="input">
                         <p>Don't have an account? <a href="#">Sign up</a></p>
