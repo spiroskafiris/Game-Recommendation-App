@@ -1,4 +1,6 @@
-   
+import { Navigate } from "react-router-dom";
+import { useHref } from "react-router-dom";
+
 function NewLogin() {
     return(
     <section>
@@ -24,9 +26,9 @@ function NewLogin() {
                     <div className="input">
                         <p>Don't have an account? <a href="#">Sign up</a></p>
                     </div>
-                    <div className="input">
+                    {/* <div className="input">
                         <button id="google-login-btn" className="google-button"><i className="fab fa-google"></i>Login with Google</button>
-                    </div>
+                    </div> */}
                 </form>
 
                 <h3>Login with Social media</h3>

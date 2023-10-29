@@ -17,7 +17,7 @@
   }
 
   /* Customize the label (the container) */
-.container {
+.container2 {
   background-color: rgb(50, 32, 210);
   display:block;
   position: relative;
@@ -35,7 +35,7 @@
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.container2 input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -54,12 +54,12 @@
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.container2:hover input ~ .checkmark {
   background-color: #1209c7;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.container2 input:checked ~ .checkmark {
   background-color: #065a9f;
 }
 
@@ -71,12 +71,12 @@
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.container2 input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.container2 .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
@@ -245,7 +245,7 @@
     font-weight: 500;
     background-color: #ff6600;
   }
-
+  
   #submit-button:hover{
     background-color: #cb5201;
   }
@@ -303,3 +303,59 @@
       background-color: #ff6600;
       transform: scale(0.9);
     }
+
+
+ /* navbar css */
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar {
+  height: 60px;
+  background-color: #0f69b9;
+  position: relative;
+}
+.nav-elements {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+.nav-elements {
+  margin-right: 60px;
+}
+.nav-elements {
+  color: #a39090;
+  font-weight: 500;
+  position: relative;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+  /* addto favorites button on cards */
+.addtofav-btn{
+  outline:none;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #ff6600;
+  width: 100%;
+  padding: 10px 20px;
+  letter-spacing: 1px;
+  color: #001c2a;
+  border-radius: 30px;
+  border:1px solid #001c2a;
+}
+.addtofav-btn:hover{
+  background-color: #cb5201;
+}
+.addtofav-btn:active{
+  transform: scale(0.9);
+    transition: 0.2s;
+}
