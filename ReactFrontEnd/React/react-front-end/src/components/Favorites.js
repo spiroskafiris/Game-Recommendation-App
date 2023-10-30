@@ -18,25 +18,25 @@ function Favorites() {
       }, []);
     
     function removefromfav(id){
-        var payload = {
-            id:id,
-            img: gameData[id-1].img,
-            title: gameData[id-1].title,
-            developer: gameData[id-1].developer,
-            genres: gameData[id-1].genres,
-            rating: 50,
-            description: gameData[id-1].description,
-            isFavorite: false
-            }
-            console.log(payload)
+        // var payload = {
+        //     id:id,
+        //     img: gameData[id-1].img,
+        //     title: gameData[id-1].title,
+        //     developer: gameData[id-1].developer,
+        //     genres: gameData[id-1].genres,
+        //     rating: 50,
+        //     description: gameData[id-1].description,
+        //     isFavorite: false
+        //     }
+        //     console.log(payload)
 
-          axios.put('https://localhost:7221/games', payload)
+          axios.get('https://localhost:7221/games/remfav/'+ id)
           .then((response) => {
               console.log(response.data);
           })
           .catch((error) => {
               console.error(error);
-              console.log("faaaaaild");
+              console.log("failed");
           });
     }
     return(

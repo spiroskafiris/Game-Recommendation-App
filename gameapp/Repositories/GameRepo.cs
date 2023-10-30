@@ -54,6 +54,37 @@ namespace gameapp.Repositories
             return null;
         }
 
+        public bool changeIsFavtoTrue(int id)
+        {
+            using (var db = new DataContext())
+            {
+                var target = db.Games.FirstOrDefault(c => c.Id == id);
+                if (target != null)
+                {
+                    target.isFavorite = true;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            return false;
+
+        }
+        public bool changeIsFavtoFalse(int id)
+        {
+            using (var db = new DataContext())
+            {
+                var target = db.Games.FirstOrDefault(c => c.Id == id);
+                if (target != null)
+                {
+                    target.isFavorite = false;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            return false;
+
+        }
+
         public bool UpdateGame(Game game)
         {
             using (var db = new DataContext())

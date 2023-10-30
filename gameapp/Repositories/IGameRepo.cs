@@ -9,6 +9,8 @@ namespace gameapp.Repositories
         IEnumerable<Game> GetAllGames();
         bool DeleteGame(int id);
         bool UpdateGame(Game game);
+        bool changeIsFavtoTrue(int id);
+        bool changeIsFavtoFalse(int id);
 
         //Favorites methods
         /*bool AddtoFavorites(Favorite game);

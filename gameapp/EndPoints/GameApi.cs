@@ -13,6 +13,8 @@ namespace gameapp.EndPoints
             app.MapGet("/games", GetAllGames);
             app.MapDelete("/games", DeleteGame);
             app.MapPut("/games", UpdateGame);
+            app.MapGet("/games/fav/{id}", addFav);
+            app.MapGet("/games/remfav/{id}", removeFav);
         }
 
         [HttpPost]
@@ -50,6 +52,45 @@ namespace gameapp.EndPoints
                 return Results.Problem(ex.Message);
             }
         }
+
+        [HttpGet]
+        private static async Task<IResult> addFav(int id, IGameRepo service)
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    var game = service.changeIsFavtoTrue(id);
+                    if (game == null) return Results.NotFound();
+                    return Results.Ok(game);
+                });
+
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        private static async Task<IResult> removeFav(int id, IGameRepo service)
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    var game = service.changeIsFavtoFalse(id);
+                    if (game == null) return Results.NotFound();
+                    return Results.Ok(game);
+                });
+
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(ex.Message);
+            }
+        }
+
         //get
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]

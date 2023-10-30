@@ -37,91 +37,84 @@ function CardCreate() {
     }
 
       function addtofav(id) {
-            var payload = {
-              id:id,
-              img: gameData[id-1].img,
-              title: gameData[id-1].title,
-              developer: gameData[id-1].developer,
-              genres: gameData[id-1].genres,
-              rating: gameData[id-1].rating,
-              description: gameData[id-1].description,
-              isFavorite: true
-              }
-              console.log(payload)
+            // var payload = {
+            //   id:id,
+            //   img: gameData[id-1].img,
+            //   title: gameData[id-1].title,
+            //   developer: gameData[id-1].developer,
+            //   genres: gameData[id-1].genres,
+            //   rating: gameData[id-1].rating,
+            //   description: gameData[id-1].description,
+            //   isFavorite: true
+            //   }
+            //   console.log(payload)
 
-            axios.put('https://localhost:7221/games', payload)
+            axios.get('https://localhost:7221/games/fav/'+ id) //this should be a put if I want to use payload
             .then((response) => {
+                console.log("from the get inside fav");
                 console.log(response.data);
             })
             .catch((error) => {
                 console.error(error);
-                console.log("faaaaailed");
+                console.log("failed");
             });
-            // axios.get("https://localhost:7221/games").then((response) => {
-            //   console.log(response.data)
-            //   setGameData((existingData) => {
-            //     return response.data;
-            //   });
-            // });
-            console.log(gameData);
       }
  
-      console.log(gameData);
     return(
         <>
           <h1>Choose a Game Category:</h1>
         
-            <label class="container2">Action
+            <label className="container2">Action
                 <input type="checkbox" value="Action ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Co-op
+            <label className="container2">Co-op
                 <input type="checkbox" value="Co-op ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Online
+            <label className="container2">Online
                 <input type="checkbox" value="Online ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Fighting
+            <label className="container2">Fighting
                 <input type="checkbox" value="Fighting ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">FPS
+            <label className="container2">FPS
                 <input type="checkbox" value="FPS ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Cars
+            <label className="container2">Cars
                 <input type="checkbox" value="Cars ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Ninja Shooter
+            <label className="container2">Ninja Shooter
                 <input type="checkbox" value="Ninja Shooter ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Soulslike
+            <label className="container2">Soulslike
                 <input type="checkbox" value="Soulslike ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Atmospheric
+            <label className="container2">Atmospheric
                 <input type="checkbox" value="Atmospheric ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Survival
+            <label className="container2">Survival
                 <input type="checkbox" value="Survival ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Racing
+            <label className="container2">Racing
                 <input type="checkbox" value="Racing ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Soccer
+            <label className="container2">Soccer
                 <input type="checkbox" value="Soccer ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
-            <label class="container2">Strategy
+            <label className="container2">Strategy
                 <input type="checkbox" value="Strategy ," onChange={handleChange}/>
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
             </label>
 
         <h1>The best games for you are:</h1>

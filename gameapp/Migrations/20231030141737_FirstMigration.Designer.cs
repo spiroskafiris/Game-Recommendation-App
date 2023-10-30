@@ -12,7 +12,7 @@ using gameapp.Data;
 namespace gameapp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231029232821_FirstMigration")]
+    [Migration("20231030141737_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
