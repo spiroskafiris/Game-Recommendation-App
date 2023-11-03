@@ -9,7 +9,7 @@ namespace gameapp.Data
         {
             using (var db = new DataContext())
             {
-
+                //here we populate the table/Games database when it is empty
                 var games = new List<Game>();
                 var favorites = new List<Favorite>();
 

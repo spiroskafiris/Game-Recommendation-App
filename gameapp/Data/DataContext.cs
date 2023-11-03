@@ -21,9 +21,9 @@ namespace gameapp.Data
         }
     
 
-        public DbSet<Game> Games { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Game> Games { get; set; } //the Games database where all games are stored and fetched from
+        public DbSet<User> Users { get; set; } //this is not used currently
+        public DbSet<Favorite> Favorites { get; set; } //this may be used in another implementation
 
     }
 }

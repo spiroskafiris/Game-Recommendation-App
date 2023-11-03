@@ -3,6 +3,7 @@ using gameapp.Models;
 
 namespace gameapp.Repositories
 {
+    //this may be used in another implementation
     public class Fav : IFav
     {
         public bool AddtoFavorites(Favorite game)

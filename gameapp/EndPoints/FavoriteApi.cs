@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace gameapp.EndPoints
 {
+    //this may be used in another implementation
     public static class FavoriteApi
     {
         public static void ConfigureFavoriteApi(this WebApplication app)

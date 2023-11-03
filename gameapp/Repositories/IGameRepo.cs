@@ -11,11 +11,5 @@ namespace gameapp.Repositories
         bool UpdateGame(Game game);
         bool changeIsFavtoTrue(int id);
         bool changeIsFavtoFalse(int id);
-
-        //Favorites methods
-        /*bool AddtoFavorites(Favorite game);
-        IEnumerable<Favorite> GetAllFavorites();
-        bool DeleteFavorite(int id);*/
-
     }
 }

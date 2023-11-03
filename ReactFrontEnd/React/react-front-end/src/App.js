@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function App() {   
+function App() {  
     return(
     <>
     <header>
@@ -21,7 +21,6 @@ function App() {
                 </Nav>
             </Container>
         </Navbar>
-
         <nav>
           <ul>  
               <Routes>
@@ -31,7 +30,6 @@ function App() {
               </Routes>
           </ul>
         </nav>
-        
       </header>
     </>)
 }

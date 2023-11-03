@@ -17,6 +17,7 @@ namespace gameapp.EndPoints
             app.MapGet("/games/remfav/{id}", removeFav);
         }
 
+        //post
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         private static async Task<IResult> CreateAGame(Game game, IGameRepo service)

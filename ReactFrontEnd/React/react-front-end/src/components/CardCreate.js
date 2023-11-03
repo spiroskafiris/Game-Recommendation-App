@@ -51,7 +51,6 @@ function CardCreate() {
 
             axios.get('https://localhost:7221/games/fav/'+ id) //this should be a put if I want to use payload
             .then((response) => {
-                console.log("from the get inside fav");
                 console.log(response.data);
             })
             .catch((error) => {
