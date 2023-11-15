@@ -11,7 +11,7 @@ function App() {
     return(
     <>
     <header>
-        <h1>Game Recommendations App</h1>
+        <h1>Game Showcase App</h1>
         <Navbar className="navbar">
             <Container>
                 <Nav className="nav-elements">
